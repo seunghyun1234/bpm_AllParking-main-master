@@ -74,7 +74,7 @@ ul {
 
 .container {
     display: none;
-    position: absolute;
+    position: fixed;
     top: 100px;
     height: 200px;
     width: 100%;

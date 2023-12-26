@@ -1,6 +1,7 @@
 package kr.allparking.bpm_AllParking.entity;
 
 import jakarta.persistence.*;
+import kr.allparking.bpm_AllParking.dto.UserDTO;
 import lombok.Data;
 
 @Entity
@@ -27,5 +28,7 @@ public class UserEntity {
     private String carNum;
     @Column
     private String role;
+
+
 
 }

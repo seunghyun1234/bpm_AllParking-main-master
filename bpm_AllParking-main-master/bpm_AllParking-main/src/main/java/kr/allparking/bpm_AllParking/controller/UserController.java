@@ -1,9 +1,11 @@
 package kr.allparking.bpm_AllParking.controller;
 
+import jakarta.servlet.http.HttpSession;
 import kr.allparking.bpm_AllParking.dto.UserDTO;
 import kr.allparking.bpm_AllParking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
@@ -32,6 +34,11 @@ public class UserController {
     public String login(){
         return "redirect:/";
     }
+    @GetMapping("/update")
+    public String updateForm(){
+        return "editmy";
+    }
+
 
 
 }

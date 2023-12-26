@@ -102,7 +102,7 @@
             </select></li>
             <input type="text">
             <button>검색하기</button>
-            <button onclick="saveReq()">글쓰기</button>
+            <button onclick="saveReq()" sec:authorize="hasRole('ADMIN')">글쓰기</button>
 
         </ul>
     </div>
