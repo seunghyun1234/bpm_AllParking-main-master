@@ -12,7 +12,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @NoArgsConstructor
 @AllArgsConstructor
 
+
 public class UserDTO {
+
+
 
     private Long id;
     private String username;
@@ -22,6 +25,16 @@ public class UserDTO {
     private String phone;
     private String carNum;
 
+    public static UserDTO toUserDTO(UserEntity userEntity){
+        UserDTO userDTO= new UserDTO();
+        userDTO.setId(userEntity.getId());
+        userDTO.setUsername(userEntity.getUsername());
+        userDTO.setPassword(userEntity.getPassword());
+        userDTO.setUseremail(userEntity.getUseremail());
+        userDTO.setPhone(userEntity.getPhone());
+        userDTO.setCarNum(userEntity.getCarNum());
 
+        return userDTO;
+    }
 
 }

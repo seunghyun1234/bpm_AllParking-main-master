@@ -26,7 +26,7 @@
             <h3>기본정보</h3>
             <div class="id">
                 <p>아이디</p>
-                <input type="text" class="text" name="username" id="memberId">
+                <input type="text" class="text" name="username" id="username">
 <!--                onblur="idCheck()"-->
 
                 <span id="check-result"></span>
@@ -34,7 +34,7 @@
             </div>
             <div class="pw">
                 <p>비밀번호</p>
-                <input type="password" class="text" name="password">
+                <input type="password" class="text" name="password" id="password">
             </div>
             <div class="pw1">
                 <p>비밀번호 확인</p>
@@ -42,21 +42,21 @@
             </div>
             <div class="name">
                 <p>이름</p>
-                <input type="text" class="text" name="name">
+                <input type="text" class="text" name="name" id="name">
             </div>
             <div class="number">
                 <p>휴대전화</p>
-                <input type="tel" class="text" name="phone">
+                <input type="tel" class="text" name="phone" id="phone">
             </div>
             <div class="mail">
                 <p>이메일</p>
-                <input type="email" class="text" name="useremail">
+                <input type="email" class="text" name="useremail" id="useremail">
                 <input type="button" class="bt" name="본인인증" value="본인인증">
             </div>
             <h3>차량정보</h3>
             <div class="carinfo">
                 <p>차량번호</p>
-                <input type="text" class="text" name="carNum">
+                <input type="text" class="text" name="carNum" id="carNum">
                 <input type="button" class="bt" name="등록하기" value="등록하기">
             </div>
             <h3>약관동의</h3>
@@ -102,5 +102,44 @@
         });
 
     }
+    const check_save=()=>{
+        const username=document.getElementById("username").value;
+        const password=document.getElementById("password").value;
+        const name=document.getElementById("name").value;
+        const useremail=document.getElementById("useremail").value;
+        const phone=document.getElementById("phone").value;
+        const carNum=document.getElementById("carNum").value;
+
+        $.ajax({
+            type:"post",
+            url:"/member/saveProc",
+            data:{
+                username:username,
+                password:password,
+                name:name,
+                useremail:useremail,
+                phone:phone,
+                carNum:carNum
+            },
+            dataType:"text",
+            success:function (ck){
+                console.log(ck)
+                if(ck==='save_success'){
+                    alert("회원가입 실패")
+                    location.href="/member/join"
+
+                }else {
+                    alert("회원가입 축하")
+                    location.href="/member/login"
+
+                }
+            },
+            error:function (ck){
+                console.log(ck);
+            }
+        })
+
+    }
+</script>
 </script>
 </html>

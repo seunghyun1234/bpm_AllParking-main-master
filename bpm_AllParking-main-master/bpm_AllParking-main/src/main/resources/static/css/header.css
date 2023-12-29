@@ -6,7 +6,6 @@ html {
 }
 
 header {
-    top: 2px;
     display: flex;
     position: fixed;
     width: 100%;

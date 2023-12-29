@@ -2,6 +2,7 @@ package kr.allparking.bpm_AllParking.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -19,7 +20,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
                 .authorizeHttpRequests((auth)-> auth
-                                .requestMatchers("/","/css/**","/js/**","/image/**","/member/join","/member/login","/me","/team","/location","/member/joinProc","/member/loginProc").permitAll()
+                                .requestMatchers("/","/css/**","/js/**","/image/**","/member/join","/member/login","/me","/team","/location","/member/joinProc","/member/loginProc","/seoulparking/**").permitAll()
                                 .requestMatchers("/admin").hasRole("ADMIN")
 //                                .requestMatchers("/member/**","/board/**").hasAnyRole("ADMIN","USER")
                                 .anyRequest().authenticated()
@@ -46,4 +47,8 @@ public class SecurityConfig {
 //                );
         return http.build();
     }
+//    @Bean
+//    public AuthenticationManager authenticationManagerBean() throws Exception{
+//        return authenticationManagerBean();
+//    }
 }
